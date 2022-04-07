@@ -18,6 +18,7 @@
             {{$message}}
             </div>
             @enderror
+            <br>
             <label for="content">Content</label>
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
             @error('content')
@@ -25,6 +26,7 @@
             {{$message}}
             </div>
             @enderror
+            <br>
             <label for="image">Image</label>
             <input id="image" name="image" type="text">
             @error('image')
@@ -32,7 +34,7 @@
             {{$message}}
             </div>
             @enderror
-
+            <br>
             <label for="category_id">Categoria</label>
             <select id="category_id" name="category_id">
                 <option value="">nessuna categoria</option>
@@ -45,6 +47,13 @@
             {{$message}}
             </div>
             @enderror
+            <br>
+            <label>Tags</label>
+            @foreach ($tags as $tag)
+            <input type="checkbox" name="tags[]" value="{{$tag->id}}" id="tag-{{$tag->id}}">
+            <label for="tag-{{$tag->id}}">{{$tag->label}}</label>
+            @endforeach
+            <br>
             <button type="submit">Invia</button>
 
         </form>

@@ -17,6 +17,12 @@
         @if($post->category)
         <span style="color:{{$post->category->color}}">{{$post->category->label}}</span>
         @endif
+
+        @if($post->tags)
+            @foreach($post->tags as $tag)
+                <span style="backgound-color:{{$tag->color}}">{{$tag->label}}</span>
+            @endforeach
+        @endif
         <a href="{{route('admin.posts.show', $post->id)}}" class='btn'>mostra</a>
         <br>
         <a href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
